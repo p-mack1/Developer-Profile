@@ -1853,13 +1853,15 @@ body {
 	text-align: center;
 }
 
-.project-card:hover {
+.project-card:hover,
+.project-card:focus-within {
 	transform: translateY(-7px);
-	border-color: rgba(145, 216, 202, .4);
-	box-shadow: 0 24px 55px rgba(0, 0, 0, .3);
+	border-color: var(--orange);
+	box-shadow: 0 24px 55px rgba(0, 0, 0, .3), 0 0 22px rgba(255, 128, 105, .16);
 }
 
-.project-card-next-idea:hover {
+.project-card-next-idea:hover,
+.project-card-next-idea:focus-within {
 	border-color: rgba(165, 205, 170, .55);
 }
 
