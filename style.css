@@ -484,7 +484,7 @@ a {
 	border: 1px solid #303030;
 	border-bottom: 3px solid var(--blue);
 	background: #171717;
-	transition: transform 180ms ease, box-shadow 180ms ease;
+	transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
 .project-card:nth-child(2) {
@@ -492,8 +492,9 @@ a {
 }
 
 .project-card:hover {
-	transform: translateY(-4px);
+	transform: translateY(-4px) scale(1.02);
 	box-shadow: 0 12px 24px rgba(0, 0, 0, .4);
+	background: #202020;
 }
 
 .project-art {
@@ -1817,9 +1818,9 @@ body {
 	border: 1px solid rgba(245, 241, 232, .12);
 	border-bottom: 2px solid var(--blue);
 	border-radius: 5px;
-	background: #191c1d;
+	background: linear-gradient(145deg, #222829 0%, #191c1d 65%, #202526 100%);
 	box-shadow: 0 15px 40px rgba(0, 0, 0, .12);
-	transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+	transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, background 220ms ease;
 }
 
 .project-card:nth-child(2) {
@@ -1829,7 +1830,7 @@ body {
 .project-card-next-idea {
 	position: relative;
 	border-bottom-color: #82a98a;
-	background: #18211a;
+	background: linear-gradient(145deg, #253329 0%, #18211a 65%, #1d2b20 100%);
 }
 
 .project-idea-badge {
@@ -1855,14 +1856,21 @@ body {
 
 .project-card:hover,
 .project-card:focus-within {
-	transform: translateY(-7px);
+	transform: translateY(-7px) scale(1.02);
 	border-color: var(--orange);
 	box-shadow: 0 24px 55px rgba(0, 0, 0, .3), 0 0 22px rgba(255, 128, 105, .16);
+	background: linear-gradient(145deg, #303637 0%, #202526 65%, #292f30 100%);
+}
+
+.project-card:nth-child(1):hover,
+.project-card:nth-child(1):focus-within {
+	border-color: var(--blue);
 }
 
 .project-card-next-idea:hover,
 .project-card-next-idea:focus-within {
 	border-color: rgba(165, 205, 170, .55);
+	background: linear-gradient(145deg, #35463a 0%, #202c22 65%, #293b2c 100%);
 }
 
 .project-art {
