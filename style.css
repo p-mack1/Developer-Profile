@@ -90,7 +90,7 @@ a {
 }
 
 .brand-mark span {
-	color: var(--orange);
+	color: var(--blue);
 }
 
 .brand-caption {
@@ -125,8 +125,8 @@ a {
 }
 
 .main-navigation a:hover {
-	border-color: var(--orange);
-	color: var(--orange);
+	border-color: var(--blue);
+	color: var(--blue);
 }
 
 .profile-hero {
@@ -161,7 +161,7 @@ a {
 	width: 7px;
 	height: 7px;
 	border-radius: 50%;
-	background: var(--orange);
+	background: var(--blue);
 	box-shadow: 0 0 0 4px rgba(237, 41, 57, .18);
 }
 
@@ -201,7 +201,7 @@ a {
 	display: inline-flex;
 	align-items: center;
 	gap: 27px;
-	background: var(--orange);
+	background: var(--blue);
 	color: white;
 	font-size: 11px;
 	font-weight: 700;
@@ -313,7 +313,7 @@ a {
 }
 
 .section-label span {
-	color: var(--orange);
+	color: var(--blue);
 }
 
 .section-heading-row {
@@ -336,7 +336,7 @@ a {
 
 .section-heading-row h2 span,
 .projects-section .section-title span {
-	color: var(--orange);
+	color: var(--blue);
 }
 
 .section-heading-row > p {
@@ -590,8 +590,16 @@ a {
 	line-height: normal;
 }
 
-.project-meta span {
+.project-card:nth-child(1) .project-meta {
+	color: var(--blue);
+}
+
+.project-card:nth-child(2) .project-meta {
 	color: var(--orange);
+}
+
+.project-card:nth-child(3) .project-meta {
+	color: var(--lime);
 }
 
 .project-content h3 {
@@ -652,8 +660,16 @@ a {
 	border-color: var(--orange);
 }
 
-.project-link:hover {
+.project-card:nth-child(1) .project-link:hover {
+	color: var(--blue);
+}
+
+.project-card:nth-child(2) .project-link:hover {
 	color: var(--orange);
+}
+
+.project-card:nth-child(3) .project-link:hover {
+	color: var(--lime);
 }
 
 .project-link span {
@@ -1203,9 +1219,20 @@ body {
 
 .project-details summary {
 	width: fit-content;
-	color: var(--blue);
 	cursor: pointer;
 	text-underline-offset: 3px;
+}
+
+.project-card:nth-child(1) .project-details summary {
+	color: var(--blue);
+}
+
+.project-card:nth-child(2) .project-details summary {
+	color: var(--orange);
+}
+
+.project-card:nth-child(3) .project-details summary {
+	color: var(--lime);
 }
 
 .project-details p {
@@ -1284,8 +1311,9 @@ body {
 	.hero-portrait img {
 		width: 100%;
 		height: 100%;
-		object-position: center 12%;
-		transform: none;
+		object-position: center;
+		object-fit: contain;
+		transform: translateY(5%);
 	}
 
 	.profile-section {
@@ -1580,8 +1608,8 @@ body {
 
 .profile-button:hover {
 	transform: translateY(-3px);
-	background: #ff9a7e;
-	box-shadow: 0 12px 32px rgba(243, 139, 112, .24);
+	background: var(--blue);
+	box-shadow: 0 12px 32px rgba(145, 216, 202, .24);
 }
 
 .profile-button span,
@@ -1618,26 +1646,28 @@ body {
 	height: clamp(390px, 39vw, 510px);
 	border: 1px solid rgba(245, 241, 232, .22);
 	border-radius: 4px;
-	background: #202224;
+	background: #000;
 	box-shadow: 0 28px 70px rgba(0, 0, 0, .34);
 }
 
 .hero-portrait::before {
 	inset: 12px -12px -12px 12px;
-	border-color: var(--orange);
+	border-color: var(--blue);
 	opacity: .8;
 }
 
 .hero-portrait img {
 	width: 100%;
-	transform: none;
-	object-position: center 12%;
+	transform: translateY(5%);
+	transform-origin: center top;
+	object-fit: cover;
+	object-position: center;
 	filter: saturate(.82);
 	transition: filter 400ms ease, transform 700ms cubic-bezier(.2, .7, .2, 1);
 }
 
 .hero-portrait:hover img {
-	transform: scale(1.025);
+	transform: translateY(5%) scale(1.025);
 	filter: saturate(1);
 }
 
