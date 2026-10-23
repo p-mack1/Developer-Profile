@@ -45,6 +45,7 @@ if ('IntersectionObserver' in window && sections.length > 0) {
 const gmailLink = document.querySelector('[data-gmail-app-url]');
 const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
 	|| (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const isAndroid = /Android/i.test(navigator.userAgent);
 
 if (gmailLink && isMobileDevice) {
 	gmailLink.addEventListener('click', event => {
@@ -59,6 +60,10 @@ if (gmailLink && isMobileDevice) {
 		}
 
 		event.preventDefault();
+		const recipient = new URL(gmailLink.href).searchParams.get('to');
+		const gmailAppUrl = isAndroid && recipient
+			? `intent:#Intent;action=android.intent.action.SENDTO;data=${encodeURIComponent(`mailto:${recipient}`)};package=com.google.android.gm;end`
+			: gmailLink.dataset.gmailAppUrl;
 		const clearFallback = () => window.clearTimeout(fallbackTimer);
 		const fallbackTimer = window.setTimeout(() => {
 			window.location.href = gmailLink.href;
@@ -70,6 +75,6 @@ if (gmailLink && isMobileDevice) {
 			}
 		}, { once: true });
 		window.addEventListener('pagehide', clearFallback, { once: true });
-		window.location.href = gmailLink.dataset.gmailAppUrl;
+		window.location.href = gmailAppUrl;
 	});
 }
