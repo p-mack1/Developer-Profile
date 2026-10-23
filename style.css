@@ -197,21 +197,27 @@ a {
 
 .profile-button {
 	min-height: 48px;
-	padding: 0 17px;
+	padding: 0 20px 0 18px;
 	display: inline-flex;
 	align-items: center;
-	gap: 27px;
-	background: var(--blue);
-	color: white;
+	gap: 16px;
+	border: 1px solid rgba(255, 255, 255, .18);
+	border-radius: 999px;
+	background: linear-gradient(135deg, var(--blue) 0%, #a8e5d7 100%);
+	color: #101214;
+	box-shadow: 0 12px 24px rgba(130, 217, 203, .2);
 	font-size: 11px;
 	font-weight: 700;
+	letter-spacing: .08em;
 	text-decoration: none;
-	transition: background-color 160ms ease, transform 160ms ease;
+	text-transform: uppercase;
+	transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
 }
 
 .profile-button:hover {
 	transform: translateY(-2px);
-	background: #292929;
+	box-shadow: 0 16px 30px rgba(130, 217, 203, .28);
+	filter: brightness(1.04);
 }
 
 .profile-button span {
