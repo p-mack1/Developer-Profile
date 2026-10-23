@@ -41,3 +41,35 @@ if ('IntersectionObserver' in window && sections.length > 0) {
 
 	sections.forEach(section => observer.observe(section));
 }
+
+const gmailLink = document.querySelector('[data-gmail-app-url]');
+const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+	|| (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+if (gmailLink && isMobileDevice) {
+	gmailLink.addEventListener('click', event => {
+		if (
+			event.button !== 0
+			|| event.metaKey
+			|| event.ctrlKey
+			|| event.shiftKey
+			|| event.altKey
+		) {
+			return;
+		}
+
+		event.preventDefault();
+		const clearFallback = () => window.clearTimeout(fallbackTimer);
+		const fallbackTimer = window.setTimeout(() => {
+			window.location.href = gmailLink.href;
+		}, 1200);
+
+		document.addEventListener('visibilitychange', () => {
+			if (document.hidden) {
+				clearFallback();
+			}
+		}, { once: true });
+		window.addEventListener('pagehide', clearFallback, { once: true });
+		window.location.href = gmailLink.dataset.gmailAppUrl;
+	});
+}
