@@ -124,8 +124,7 @@ a {
 	transition: color 160ms ease, border-color 160ms ease;
 }
 
-.main-navigation a:hover,
-.main-navigation a[aria-current="location"] {
+.main-navigation a:hover {
 	border-color: var(--blue);
 	color: var(--blue);
 }
@@ -1078,7 +1077,7 @@ a {
 	}
 
 	.hero-copy h1 {
-		font-size: clamp(58px, 8vw, 78px);
+		font-size: 49px;
 	}
 
 	.hero-intro {
@@ -1300,7 +1299,7 @@ body {
 	}
 
 	.hero-copy h1 {
-		font-size: 49px;
+		font-size: clamp(58px, 8vw, 78px);
 	}
 
 	.hero-portrait {
